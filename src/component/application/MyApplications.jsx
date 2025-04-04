@@ -4,10 +4,10 @@ import logo1 from "../../assets/companyLogo/CompanyLogo.png";
 import logo2 from "../../assets/companyLogo/CompanyLogo.png";
 import logo3 from "../../assets/companyLogo/CompanyLogo.png";
 import logo4 from "../../assets/companyLogo/CompanyLogo.png";
-import logo5 from "../../assets/companyLogo/companyLogo.png";
-import logo6 from "../../assets/companyLogo/companyLogo.png";
-import logo7 from "../../assets/companyLogo/companyLogo.png";
-import logo8 from "../../assets/companyLogo/companyLogo.png";
+import logo5 from "../../assets/companyLogo/CompanyLogo.png";
+import logo6 from "../../assets/companyLogo/CompanyLogo.png";
+import logo7 from "../../assets/companyLogo/CompanyLogo.png";
+import logo8 from "../../assets/companyLogo/CompanyLogo.png";
 import horizontal from "../../assets/companyLogo/companyLogo.png"
 
 
