@@ -8,7 +8,7 @@ import facebook from "../../assets/image/facebook.png";
 import instagram from "../../assets/image/instagram.png";
 import LinkedIn from "../../assets/image/linkedin.png";
 import gmail from "../../assets/image/gmail.png";
-import image1 from "../../assets/image/images.png";
+import image1 from "../../assets/image/Images.png";
 import image2 from "../../assets/image/leo.png";
 import image3 from "../../assets/image/leon.png";
 import image4 from "../../assets/image/Mask.png";
