@@ -8,7 +8,7 @@ import logo5 from "../../assets/companyLogo/CompanyLogo.png";
 import logo6 from "../../assets/companyLogo/CompanyLogo.png";
 import logo7 from "../../assets/companyLogo/CompanyLogo.png";
 import logo8 from "../../assets/companyLogo/CompanyLogo.png";
-import horizontal from "../../assets/companyLogo/companyLogo.png"
+import horizontal from "../../assets/companyLogo/CompanyLogo.png"
 
 
 const MyApplications = () => {
