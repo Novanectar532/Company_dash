@@ -11,6 +11,8 @@ import JobDetails from './component/findjob/JobDetails'
 import MyApplications from './component/application/MyApplications'
 import Company_profile from './component/company/CompanyProfile'
 import MessagingUI from './component/message/Message'
+import All_Application from './component/application/All_Application'
+import Schedule from './component/message/Schedule'
 function App() {
   const router = createBrowserRouter([
     {
@@ -29,6 +31,12 @@ function App() {
         },{
           path:'/all',
           element:<MessagingUI/> 
+        },{
+          path:'/myapplication',
+          element:<All_Application/>
+        },{
+          path:'/schedule',
+          element:<Schedule/>
         }
        
       ]

@@ -16,12 +16,13 @@ function Sidebar() {
           <a onClick={()=>navigate('/message')} className=" cursor-pointer block p-2 rounded ">
            Messages
           </a>
-          <a href="#" className=" cursor-pointer block p-2 rounded ">
+          <a onClick={()=>navigate('/myapplication')} className=" cursor-pointer block p-2 rounded ">
            All Applicants
           </a>
           <a href="#" className=" cursor-pointer block p-2 rounded ">
            Job Listing
-          </a><a href="#" className=" cursor-pointer block p-2 rounded ">
+          </a>
+          <a onClick={()=>navigate('/schedule')} className=" cursor-pointer block p-2 rounded ">
            My Schedule
           </a>
         </nav>

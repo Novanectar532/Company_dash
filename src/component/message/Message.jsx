@@ -36,16 +36,6 @@ export default function MessagingUI() {
   return (
 
     <div className=" flex">
-      <aside className="w-1/5 bg-gray-100 p-5 border-r hidden lg:block">
-        <nav>
-          <ul className="space-y-4">
-            <li className="p-2 rounded-lg hover:bg-gray-200">Dashboard</li>
-            <li className="p-2 rounded-lg hover:bg-gray-200">
-              Company Profile
-            </li>
-          </ul>
-        </nav>
-      </aside>
     
     <main className="flex  md:flex-row w-full h-screen">
     <div className="md:flex flex-col w-full md:w-1/2  border-r p-4 overflow-y-auto hidden ">

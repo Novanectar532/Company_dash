@@ -26,7 +26,7 @@ function Header() {
   return (
     <>
   <nav className="flex justify-end items-center p-2 shadow-md w-full ">
-          <button className="bg-indigo-600 text-white px-4 py-2 rounded-lg flex items-center hover:bg-indigo-700 transition">
+          <button className="bg-indigo-600  text-white px-4 py-2 rounded-lg flex items-center hover:bg-indigo-700 transition">
             + Post a job
           </button>
           <FaBell className="text-gray-600 text-xl mx-4 cursor-pointer hover:text-gray-800 transition" />
