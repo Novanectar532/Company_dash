@@ -50,31 +50,14 @@ const technologies = [
 function Company_profile() {
   return (
     <>
-      <div class="flex">
-        <div class="w-64 bg-white h-screen p-6 hidden lg:block">
-        
-          <nav>
-            <ul>
-             
-              <li class="mb-4">
-                <a
-                  class="flex items-center text-blue-600 font-semibold"
-                  href="#"
-                >
-                  <i class="fas fa-user mr-3"></i>
-                  Company Profile
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
+      <div className="w-full ">
         <div className="flex-1 p-6">
           <div>
             <div className="flex justify-between items-center mb-6">
               <div className="flex items-center">
                 <img
                   alt="Company Logo"
-                  class="w-16 h-16 mr-4"
+                  className="w-16 h-16 mr-4"
                   height="60"
                   src={logo}
                   width="60"
@@ -86,40 +69,40 @@ function Company_profile() {
                   </a>
                 </div>
               </div>
-              <div class="flex items-center">
+              <div className="flex items-center">
                 <img src={view} alt="" />
-                <button class=" text-blue-600 px-4 py-2 rounded mr-4 cursor-pointer">
+                <button className=" text-blue-600 px-4 py-2 rounded mr-4 cursor-pointer">
                   Public View
                 </button>
               </div>
             </div>
-            <div class="md:flex justify-center items-center mb-6 ">
+            <div className="md:flex justify-center items-center mb-6 ">
               <div className=" p-4 rounded-lg flex items-center">
                    <img src={found} alt="" className="text-2xl mr-2"  />
                 <div>
-                <p class="text-gray-500">Founded</p>
-                <p class="font-semibold">March 2011</p>
+                <p className="text-gray-500">Founded</p>
+                <p className="font-semibold">March 2011</p>
             </div>
               </div>
               <div className=" p-4 rounded-lg flex items-center  ">
                    <img src={empoly} alt="" className="text-2xl mr-2"  />
                 <div>
-                <p class="text-gray-500">Employees</p>
-                <p class="font-semibold">50-100</p>
+                <p className="text-gray-500">Employees</p>
+                <p className="font-semibold">50-100</p>
             </div>
               </div>
               <div className=" p-4 rounded-lg flex items-center">
                    <img src={loction} alt="" className="text-2xl mr-2"  />
                 <div>
-                <p class="text-gray-500">Location</p>
-                <p class="font-semibold">India</p>
+                <p className="text-gray-500">Location</p>
+                <p className="font-semibold">India</p>
             </div>
               </div>
               <div className= " p-4 rounded-lg flex items-center  ">
                    <img src={industry} alt="" className="text-2xl mr-2"  />
                 <div>
-                <p class="text-gray-500">Industry</p>
-                <p class="font-semibold">IT Services and IT Consulting</p>
+                <p className="text-gray-500">Industry</p>
+                <p className="font-semibold">IT Services and IT Consulting</p>
             </div>
               
               </div>

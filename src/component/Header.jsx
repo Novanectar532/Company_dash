@@ -25,7 +25,7 @@ function Header() {
 
   return (
     <>
-  <nav className="flex justify-end items-center p-2 bg-amber-300 shadow-md w-full ">
+  <nav className="flex justify-end items-center p-2 shadow-md w-full ">
           <button className="bg-indigo-600 text-white px-4 py-2 rounded-lg flex items-center hover:bg-indigo-700 transition">
             + Post a job
           </button>
