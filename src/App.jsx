@@ -1,6 +1,3 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
@@ -11,6 +8,13 @@ import JobDetails from './component/findjob/JobDetails'
 import MyApplications from './component/application/MyApplications'
 import Company_profile from './component/company/CompanyProfile'
 import MessagingUI from './component/message/Message'
+import JobSearchPage from './component/findjob/JobSearchPage'
+import JobApplicationPage from './component/findjob/JobApplicationPage'
+import CompanyJobListing from './component/company/CompanyJobListing'
+import SignUp from './component/Signup.jsx'
+import Login from './component/Login.jsx'
+import ForgetPassword from './component/ForgotPassword.jsx'
+import ResetPassword from './component/ResetPassword.jsx'
 function App() {
   const router = createBrowserRouter([
     {
@@ -29,8 +33,13 @@ function App() {
         },{
           path:'/all',
           element:<MessagingUI/> 
-        }
-       
+        },{path: '/find-job', element: <JobSearchPage/>},
+        {path: '/job/:id', element: <JobApplicationPage/>},
+        {path: '/company-job', element: <CompanyJobListing/>},
+        {path: '/signup', element: <SignUp/>}, 
+      {path: '/login', element: <Login/>}, 
+      {path: '/forget-password', element: <ForgetPassword/>},
+      {path: '/reset-password', element: <ResetPassword/>},
       ]
     }
   ])
