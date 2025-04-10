@@ -27,8 +27,11 @@ function Sidebar() {
         </nav>
         <hr className='text-blue-200 mx-3 ' />
         <nav className='border-r border-blue-200 pt-5 pb-6 text-lg pl-5.5 '>
-        <a href="#" className=" cursor-pointer block p-2 rounded ">
+          <a onClick={() => navigate('/setting')} className=" cursor-pointer block p-2 rounded ">
             Setting
+          </a>
+          <a onClick={() => navigate('/notification')} className=" cursor-pointer block p-2 rounded ">
+            Notification
           </a>
           <a href="#" className=" cursor-pointer block p-2 rounded ">
             Help Center

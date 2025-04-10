@@ -11,33 +11,44 @@ import JobDetails from './component/findjob/JobDetails'
 import MyApplications from './component/application/MyApplications'
 import Company_profile from './component/company/CompanyProfile'
 import MessagingUI from './component/message/Message'
+import Setting from "./component/Setting/Setting"
+import Notification from './component/message/Notification'
 function App() {
   const router = createBrowserRouter([
     {
-      path:'/',
-      element:<Applayout/>,
-      children:[
+      path: '/',
+      element: <Applayout />,
+      children: [
         {
-          path:'/',
-          element:<Dashboard/>
-        },{
-          path:'/comapnyprofile',
-          element:<Company_profile/>
-        },{
-          path:'/message',
-          element:<MessagingUI/> 
-        },{
-          path:'/all',
-          element:<MessagingUI/> 
+          path: '/',
+          element: <Dashboard />
+        }, {
+          path: '/comapnyprofile',
+          element: <Company_profile />
+        }, {
+          path: '/message',
+          element: <MessagingUI />
+        },
+        {
+          path: '/all',
+          element: <MessagingUI />
+        },
+        {
+          path: '/setting',
+          element: <Setting />
+        },
+        {
+          path: '/notification',
+          element: <Notification />
         }
-       
+
       ]
     }
   ])
 
-  return <RouterProvider router = {router}/>
-   
-  
+  return <RouterProvider router={router} />
+
+
 }
 
 export default App
