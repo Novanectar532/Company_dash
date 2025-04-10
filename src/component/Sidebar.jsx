@@ -24,6 +24,10 @@ function Sidebar() {
           </a><a href="#" className=" cursor-pointer block p-2 rounded ">
            My Schedule
           </a>
+         
+          <a onClick={()=>navigate('/post')} className=" cursor-pointer block p-2 rounded ">
+           PostJob
+          </a>
         </nav>
         <hr className='text-blue-200 mx-3 ' />
         <nav className='border-r border-blue-200 pt-5 pb-6 text-lg pl-5.5 '>

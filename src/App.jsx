@@ -11,6 +11,9 @@ import JobDetails from './component/findjob/JobDetails'
 import MyApplications from './component/application/MyApplications'
 import Company_profile from './component/company/CompanyProfile'
 import MessagingUI from './component/message/Message'
+import Postjob from './component/PostJob/postjob'
+import ViewJob from './component/PostJob/viewJob'
+import Update from './component/PostJob/update'
 function App() {
   const router = createBrowserRouter([
     {
@@ -29,6 +32,19 @@ function App() {
         },{
           path:'/all',
           element:<MessagingUI/> 
+        }
+        
+        ,{
+          path : '/post',
+          element : <Postjob/>
+        }
+        ,{
+          path : '/viewjob',
+          element : <ViewJob/>
+        }
+        ,{
+          path : '/updatejob/:id',
+          element : <Update/>
         }
        
       ]
