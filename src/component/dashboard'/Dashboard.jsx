@@ -5,11 +5,7 @@ import logo from '../../assets/image/Company_Logo.png';
 import PersnolProfile from "./PersonalProfile"
 import {
   FaUser,
-  FaCalendarAlt,
-  FaEnvelope,
-  FaEye,
-  FaList,
-  FaBell,
+  FaCalendarAlt, FaEnvelope, FaEye, FaList, FaBell,
 } from "react-icons/fa";
 import {
   BarChart,
@@ -156,200 +152,199 @@ const applicantSummary = {
 
 function Dashboard() {
   const [chartData, setChartData] = useState(yearlyData);
-    const [timeframe, setTimeframe] = useState("Yearly");
+  const [timeframe, setTimeframe] = useState("Yearly");
   return (
     <>
-        <h2 className="text-xl  pt-5 font-semibold">Good morning, Natasha Bunny</h2>
+      <div className="py-3 px-4 ">
+        <h2 className="text-xl   font-semibold">Good morning, Natasha Bunny</h2>
         <p className="text-gray-500">
           Here is your job listings statistic report.
         </p>
 
-  
-        <div className="md:flex gap-4 mt-6   lg:grid lg:grid-cols-3 mx-auto justify-around ">
-          <div className="bg-blue-500 text-white p-4 rounded-lg flex items-center md:mb-0 mb-4 ">
-            <FaUser className="text-2xl mr-2" />
-            <div>
-              <h3 className="text-lg font-bold">76</h3>
-              <p>New applicants to review</p>
-            </div>
-          </div>
-          <div className="bg-green-500 text-white p-4 rounded-lg flex items-center md:mb-0 mb-4 ">
-            <FaCalendarAlt className="text-2xl mr-2" />
-            <div>
-              <h3 className="text-lg font-bold">110</h3>
-              <p>Interview schedule for today</p>
-            </div>
-          </div>
-          <div className="bg-blue-300 text-white p-4 rounded-lg flex items-center md:mb-0 mb-4 ">
-            <FaEnvelope className="text-2xl mr-2" />
-            <div>
-              <h3 className="text-lg font-bold">23</h3>
-              <p>Messages received</p>
-            </div>
+      </div>
+
+
+      <div  className="md:flex  w-[95%] md:w-fit lg:w-fit gap-4 mt-6  p-2 lg:grid lg:grid-cols-3 mx-auto justify-around ">
+        <div className="bg-blue-500 text-white p-4 rounded-lg flex items-center md:mb-0 mb-4 ">
+          <FaUser className="text-2xl mr-2" />
+          <div>
+            <h3 className="text-lg font-bold">76</h3>
+            <p>New applicants to review</p>
           </div>
         </div>
-
-    
-        <div className="bg-white  rounded-lg shadow-md mt-6 mx-auto px-2 pt-2">
-          <div className="flex justify-between ">
-            <h3 className="text-lg font-semibold">Job Statistics</h3>
-            <div className="flex rounded-2xl">
-              <button
-                onClick={() => {
-                  setChartData(weeklyData);
-                  setTimeframe("Weekly");
-                }}
-                className={`px-4 py-2 rounded ${
-                  timeframe === "Weekly"
-                    ? "bg-blue-500 text-white"
-                    : "bg-gray-200"
-                }`}
-              >
-                Weekly
-              </button>
-              <button
-                onClick={() => {
-                  setChartData(monthlyData);
-                  setTimeframe("Monthly");
-                }}
-                className={`px-4 py-2 rounded ${
-                  timeframe === "Monthly"
-                    ? "bg-blue-500 text-white"
-                    : "bg-gray-200"
-                }`}
-              >
-                Monthly
-              </button>
-              <button
-                onClick={() => {
-                  setChartData(yearlyData);
-                  setTimeframe("Yearly");
-                }}
-                className={`px-4 py-2 rounded ${
-                  timeframe === "Yearly"
-                    ? "bg-blue-500 text-white"
-                    : "bg-gray-200"
-                }`}
-              >
-                Yearly
-              </button>
-            </div>
+        <div className="bg-green-500 text-white p-4 rounded-lg flex items-center md:mb-0 mb-4 ">
+          <FaCalendarAlt className="text-2xl mr-2" />
+          <div>
+            <h3 className="text-lg font-bold">110</h3>
+            <p>Interview schedule for today</p>
           </div>
-          <div className="flex flex-wrap  md:grid  md:grid-cols-2 gap-2 items-center justify-center py-10  ">
-            <div className="max-w-full ">
-              <ResponsiveContainer width="100%" height={300}>
-                <BarChart data={chartData}>
-                  <XAxis
-                    dataKey={
-                      timeframe === "Yearly"
-                        ? "year"
-                        : timeframe === "Monthly"
+        </div>
+        <div className="bg-blue-300 text-white p-4 rounded-lg flex items-center md:mb-0 mb-4 ">
+          <FaEnvelope className="text-2xl mr-2" />
+          <div>
+            <h3 className="text-lg font-bold">23</h3>
+            <p>Messages received</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div className=" w-full rounded-lg shadow-md mt-6 mx-auto px-2 pt-2">
+        <div className="flex justify-between flex-wrap w-full ">
+          <h3 className="text-lg font-bold  ">Job Statistics</h3>
+          <div className="flex rounded-2xl w-full md:w-fit lg:w-fit items-baseline justify-center gap-2 ">
+            <button
+              onClick={() => {
+                setChartData(weeklyData);
+                setTimeframe("Weekly");
+              }}
+              className={`px-4 py-2 rounded ${timeframe === "Weekly"
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-200"
+                }`}
+            >
+              Weekly
+            </button>
+            <button
+              onClick={() => {
+                setChartData(monthlyData);
+                setTimeframe("Monthly");
+              }}
+              className={`px-4 py-2 rounded ${timeframe === "Monthly"
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-200"
+                }`}
+            >
+              Monthly
+            </button>
+            <button
+              onClick={() => {
+                setChartData(yearlyData);
+                setTimeframe("Yearly");
+              }}
+              className={`px-4 py-2 rounded ${timeframe === "Yearly"
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-200"
+                }`}
+            >
+              Yearly
+            </button>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2  py-10  ">
+          <div className="max-w-full ">
+            <ResponsiveContainer width="100%" height={300}>
+              <BarChart data={chartData}>
+                <XAxis
+                  dataKey={
+                    timeframe === "Yearly"
+                      ? "year"
+                      : timeframe === "Monthly"
                         ? "month"
                         : "week"
-                    }
-                  />
-                  <YAxis />
-                  <Tooltip />
-                  <Legend />
-                  <Bar
-                    dataKey="jobView"
-                    stackId="a"
-                    fill="#4F46E5"
-                    name="Job View"
-                  />
-                  <Bar
-                    dataKey="jobApplied"
-                    stackId="a"
-                    fill="#F59E0B"
-                    name="Job Applied"
-                  />
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
-            <div className="mx-auto">
-              <div className=" flex gap-3">
-                <div>
-                  <div className="bg-white p-4 rounded-lg shadow-md mt-6 w-44 flex items-center justify-between">
-                    <div>
-                      <h3 className="text-md font-semibold">Job Views</h3>
-                      <h2 className="text-2xl font-bold">
-                        {timeframe.jobView}
-                        <span className="text-gray-500 text-lg">
-                          /{timeframe}
-                        </span>
-                      </h2>
-                    </div>
-                    <div className="bg-orange-400 text-white p-2 rounded-full">
-                      <FaEye className="text-lg" />
-                    </div>
+                  }
+                />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Bar
+                  dataKey="jobView"
+                  stackId="a"
+                  fill="#4F46E5"
+                  name="Job View"
+                />
+                <Bar
+                  dataKey="jobApplied"
+                  stackId="a"
+                  fill="#F59E0B"
+                  name="Job Applied"
+                />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+          <div className="mx-auto w-full px-4">
+            <div className=" flex px-2  gap-3">
+              <div>
+                <div className="bg-white p-4 rounded-lg shadow-md mt-6  flex items-center justify-evenly">
+                  <div>
+                    <h3 className="text-md font-semibold">Job Views</h3>
+                    <h2 className="text-2xl font-bold">
+                      {timeframe.jobView}
+                      <span className="text-gray-500 text-lg">
+                        /{timeframe}
+                      </span>
+                    </h2>
                   </div>
-                </div>
-                <div>
-                  <div className="bg-white p-4 rounded-lg shadow-md mt-6 w-44 flex items-center justify-between">
-                    <div>
-                      <h3 className="text-md font-semibold">Job Applied</h3>
-                      <h2 className="text-2xl font-bold">
-                        {timeframe.jobApplied}
-                        <span className="text-gray-500 text-lg">
-                          /{timeframe}
-                        </span>
-                      </h2>
-                    </div>
-                    <div className="bg-blue-600 text-white p-2 rounded-full">
-                      <FaList className="text-lg" />
-                    </div>
+                  <div className="bg-orange-400 text-white p-2 rounded-full">
+                    <FaEye className="text-lg" />
                   </div>
                 </div>
               </div>
               <div>
-                <div className="bg-white mx-auto rounded-lg shadow-md mt-6 w-auto">
-                  <h3 className="text-lg font-semibold">Applicants Summary</h3>
-                  <h2 className="text-2xl font-bold">
-                    {applicantSummary.totalApplicants}{" "}
-                    <span className="text-gray-500 text-lg">Applicants</span>
-                  </h2>
-                  <div className="h-2 bg-gray-200 rounded-full overflow-hidden mt-2">
-                    <div className="flex h-full">
-                      {applicantSummary.categories.map((cat, index) => (
-                        <div
-                          key={index}
-                          className={`${cat.color}`}
-                          style={{
-                            width: `${
-                              (cat.count / applicantSummary.totalApplicants) *
-                              100
-                            }%`,
-                          }}
-                        ></div>
-                      ))}
-                    </div>
+                <div className="bg-white p-4 rounded-lg shadow-md mt-6 w-44 flex items-center justify-between">
+                  <div>
+                    <h3 className="text-md font-semibold">Job Applied</h3>
+                    <h2 className="text-2xl font-bold">
+                      {timeframe.jobApplied}
+                      <span className="text-gray-500 text-lg">
+                        /{timeframe}
+                      </span>
+                    </h2>
                   </div>
-                  <div className="mt-4 space-y-1 grid grid-cols-2">
+                  <div className="bg-blue-600 text-white p-2 rounded-full">
+                    <FaList className="text-lg" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div className=" mx-auto rounded-lg p-4  shadow-md mt-6 w-full ">
+                <h3 className="text-lg font-semibold">Applicants Summary</h3>
+                <h2 className="text-2xl font-bold">
+                  {applicantSummary.totalApplicants}{" "}
+                  <span className="text-gray-500 text-lg">Applicants</span>
+                </h2>
+                <div className="h-2 bg-gray-200 rounded-full overflow-hidden mt-2">
+                  <div className="flex h-full">
                     {applicantSummary.categories.map((cat, index) => (
-                      <div key={index} className="flex items-center space-x-2">
-                        <span
-                          className={`w-2 h-3 ${cat.color} rounded-full`}
-                        ></span>
-                        <span className="text-gray-700">
-                          {cat.label} : {cat.count}
-                        </span>
-                      </div>
+                      <div
+                        key={index}
+                        className={`${cat.color}`}
+                        style={{
+                          width: `${(cat.count / applicantSummary.totalApplicants) *
+                            100
+                            }%`,
+                        }}
+                      ></div>
                     ))}
                   </div>
+                </div>
+                <div className=" md:w-fit lg:w-fit mt-4 space-y-1 grid grid-cols-1">
+                  {applicantSummary.categories.map((cat, index) => (
+                    <div key={index} className="flex items-center space-x-2">
+                      <span
+                        className={`w-2 h-3 ${cat.color} rounded-full`}
+                      ></span>
+                      <span className="text-gray-700">
+                        {cat.label} : {cat.count}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <div className="mt-6 mx-auto">
-          <h3 className="text-lg font-semibold">Job Updates</h3>
-          <div className="grid lg:grid-cols-3 grid-cols-2 gap-4 mt-4">
+      <div className="mt-6 mx-auto py-4 w-full px-4 md:w-fit lg:w-fit">
+        <h3 className="text-lg font-semibold">Job Updates</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
           {jobData.map((job, index) => (
-        <DashJobCard key={index} {...job} />
-      ))}
-          </div>
+            <DashJobCard key={index} {...job} />
+          ))}
         </div>
+      </div>
     </>
   )
 }

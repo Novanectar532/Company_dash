@@ -2,7 +2,7 @@ import React from "react";
 
 const DashJobCard = ({ logo, jobTitle, company, location, jobType, tags, applied, capacity }) => {
   return (
-    <div className="p-4 bg-white shadow-md rounded-lg   border border-gray-200">
+    <div className="p-4  w-full   shadow-md rounded-lg   border border-gray-200">
      
       <div className="flex justify-between items-center">
         <img
