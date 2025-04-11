@@ -10,9 +10,8 @@ import right from "../../assets/image/list.png"
 import link from "../../assets/image/link.png"
 import { useNavigate } from "react-router-dom";
 import { FaSpinner } from "react-icons/fa";
+import axios from 'axios'
 
-
-import axios from "axios";
 
 const PostJob= () => {
   
