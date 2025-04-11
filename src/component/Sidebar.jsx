@@ -19,14 +19,18 @@ function Sidebar() {
           <a onClick={() => navigate('/allapplicants')}className=" cursor-pointer block p-2 rounded ">
            All Applicants 
           </a>
-          <a href="#" className=" cursor-pointer block p-2 rounded ">
+          <a  onClick={() => navigate('/joblisting')} className=" cursor-pointer block p-2 rounded ">
            Job Listing
           </a><a href="#" className=" cursor-pointer block p-2 rounded ">
            My Schedule
           </a>
-          <a onClick={()=>navigate('/jobpost')} className=" cursor-pointer block p-2 rounded ">
-           Post A Job
-</a>
+         
+          <a onClick={()=>navigate('/post')} className=" cursor-pointer block p-2 rounded ">
+           PostJob
+          </a>
+          <a onClick={()=>navigate('/viewjob')} className=" cursor-pointer block p-2 rounded ">
+           View all Job
+          </a>
         </nav>
         <hr className='text-blue-200 mx-3 ' />
         <nav className='border-r border-blue-200 pt-5 pb-6 text-lg pl-5.5 '>
