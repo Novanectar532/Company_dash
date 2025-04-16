@@ -11,7 +11,7 @@ import JobDetails from './component/findjob/JobDetails'
 
 import Company_profile from './component/company/CompanyProfile'
 import MessagingUI from './component/message/Message'
-import Allapplicants from './component/allapplicants/Applicantdetails'
+import Allapplicants from './component/Allapplicants/Applicantdetails'
 import InterviewSchedule from "./component/Allapplicants/InterviewSchedule";
 
 import Joblisting from './component/joblist/Joblisting'
