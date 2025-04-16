@@ -8,7 +8,7 @@ const ViewJob = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/jobpost")
+      .get(`${import.meta.env.VITE_BACKEND_URL}/job/jobpost`)
       .then((result) => setJobs(result.data))
       .catch((err) => console.log(err));
       
@@ -16,7 +16,7 @@ const ViewJob = () => {
 
   const handleDelete = (id) => {
     axios
-      .delete("http://localhost:5000/api/jobpost/" + id)
+      .delete(`${import.meta.env.VITE_BACKEND_URL}/job/jobpost/` + id)
       .then(() => {
         setJobs((prevJobs) => prevJobs.filter((job) => job._id !== id));
       })
@@ -82,6 +82,11 @@ const ViewJob = () => {
                 <p className="text-sm text-gray-600">
                   <span className="font-semibold">Technology Areas:</span>{" "}
                   {job.technology}
+                </p>
+                <p className="text-sm text-gray-600">
+                  <span className="font-semibold">Categories:</span>{" "}
+                     
+                  {job.categories[0]}
                 </p>
               </div>
 

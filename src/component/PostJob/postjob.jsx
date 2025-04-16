@@ -21,7 +21,7 @@ const PostJob = () => {
   const [jobTitle, setTitle] = useState("")
   const [employmentType, setEmploymentType] = useState([])
   const [sallery, setSallery] = useState(1000)
-  const [categories, setCategories] = useState('')
+  const [categories, setCategories] = useState([])
   console.log(categories);
   
   const [requiredSkills, setRequiredSkills] = useState(["JavaScript", "React", "Node.js"])
@@ -86,7 +86,7 @@ const PostJob = () => {
 
     try {
       axios
-        .post("http://localhost:5000/api/jobpost", {
+      .post(`${import.meta.env.VITE_BACKEND_URL}/job/jobpost`, {
           jobTitle,
           employmentType,
           sallery,
@@ -303,7 +303,7 @@ const PostJob = () => {
                       
                       value={categories}
                     >
-                      <option value="">Select Job Category</option>
+                      <option value="" disabled>Select Job Category</option>
                       <option value="Engineering">Engineering</option>
                       <option value="Design">Design</option>
                       <option value="Marking">Marking</option>

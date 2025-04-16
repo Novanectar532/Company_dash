@@ -79,7 +79,7 @@ const JobUpdate = () => {
   // Fetch job data
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/jobpost/" + id)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/job/jobpost/` + id)
       .then((result) => {
         console.log(result)
         setTitle(result.data.jobTitle)
@@ -113,7 +113,7 @@ const JobUpdate = () => {
 
     try {
       axios
-        .put("http://localhost:5000/api/jobpost/" + id, {
+        .put(`${import.meta.env.VITE_BACKEND_URL}/job/jobpost/` + id, {
           jobTitle,
           employmentType,
           sallery,
