@@ -9,7 +9,7 @@ const ViewJob = () => {
   useEffect(() => {
     axios
       .get("http://localhost:5000/api/jobpost")
-      .then((result) => console.log(result.data))
+      .then((result) => setJobs(result.data))
       .catch((err) => console.log(err));
       
   }, []);
