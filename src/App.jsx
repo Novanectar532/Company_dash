@@ -119,7 +119,7 @@
 
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { AuthProvider } from './context/AuthContext';
+import { AuthProvider } from './component/AuthContext';
 import ProtectedRoute from './component/ProtectedRoute';
 
 // Layouts

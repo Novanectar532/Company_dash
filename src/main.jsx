@@ -4,10 +4,14 @@ import './index.css'
 import App from './App.jsx'
 import React from 'react'
 import {Toaster} from 'react-hot-toast'
+import { AuthProvider } from './component/AuthContext.jsx'
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+   <AuthProvider> <App /></AuthProvider>
+   
+   
     <Toaster />
   </StrictMode>,
 )

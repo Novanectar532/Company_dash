@@ -2,6 +2,11 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 function Sidebar() {
   const navigate = useNavigate();
+  const handleLogout=()=>{
+    localStorage.removeItem('user');
+    alert('logout sucessfully');
+    window.close()
+  }
   return (
     <>
        <aside className="w-full bg-white shadow-md hidden lg:block">
@@ -40,7 +45,7 @@ function Sidebar() {
           <a href="#" className=" cursor-pointer block p-2 rounded ">
             Help Center
           </a>
-          <a href="#" className=" cursor-pointer block p-2 rounded ">
+          <a onClick={handleLogout} className=" cursor-pointer block p-2 rounded ">
             Logout
           </a>
         </nav>

@@ -1,23 +1,17 @@
-import React from 'react'
-import { Navigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import React from "react";
+import { Navigate } from "react-router-dom";
+import { useAuth } from "./AuthContext"; // ✅ use correct path
 
 const ProtectedRoute = ({ children }) => {
-  const { user, loading } = useAuth();
-  
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
-      </div>
-    );
-  }
-  
-  if (!user) {
-    return <Navigate to="/login" replace />;
-  }
-  
-  return children;
+  const auth = useAuth();
+
+  if (!auth) return <Navigate to="/login" />; // Fallback if context is undefined
+
+  const { user, loading } = auth;
+
+  if (loading) return <p>Loading...</p>;
+
+  return user ? children : <Navigate to="/login" />;
 };
 
 export default ProtectedRoute;

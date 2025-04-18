@@ -1,5 +1,5 @@
 
-import React , { useState } from "react"
+import React , { useEffect, useState } from "react"
 import { FaArrowLeft, FaSpinner } from "react-icons/fa"
 import bag from "../../assets/image/bag.png"
 import note from "../../assets/image/note.png"
@@ -44,6 +44,7 @@ const PostJob = () => {
   const [month, setMonth] = useState("")
   const [year, setYear] = useState("")
   const [aboutCompany, setAboutCompany] = useState("")
+  const [user_id, setuser_id] = useState('');
 
   // Character counts
   const charCount1 = jobDescription.length
@@ -106,6 +107,7 @@ const PostJob = () => {
           day,
           month,
           year,
+          postedBy:user_id
         })
         .then((result) => {
           console.log(result)
@@ -197,6 +199,18 @@ const PostJob = () => {
     </div>
   )
 
+
+ useEffect(()=>{
+  const userid = localStorage.getItem('user')
+  console.log('userii',userid)
+  try{
+    const info = JSON.parse(userid)
+    setuser_id(info.email);
+  }catch(err){
+    console.log(err);
+  }
+ },[])
+
   return (
     <div className="p-6 bg-white shadow rounded-lg">
       <form onSubmit={(e) => e.preventDefault()}>
@@ -211,6 +225,24 @@ const PostJob = () => {
                 <h3 className="text-lg font-medium text-gray-700">Basic Information</h3>
                 <p className="text-gray-500 mb-5">This information will be displayed publicly</p>
                 <hr className="text-gray-300 my-5" />
+
+                {/* Employee id */}
+                <div className="mb-6 flex flex-col md:flex-row gap-4">
+                  <div className="w-full md:w-1/3">
+                    <h1 className="font-semibold">Employee ID</h1>
+                  </div>
+                  <div className="w-full md:w-2/3">
+                    <input
+                      type="text"
+                      placeholder="e.g. Software Engineer"
+                      className="w-full border outline-none p-3 rounded-md placeholder-gray-400 disabled"
+                     
+                      value={user_id}
+                    />
+                    <p className="text-xs text-gray-400 mt-1">At least 80 characters</p>
+                  </div>
+                </div>
+
 
                 {/* Job Title */}
                 <div className="mb-6 flex flex-col md:flex-row gap-4">

@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Eye, ChevronDown, ChevronLeft, ChevronRight, Calendar } from 'lucide-react';
 import ApplicantView from './ApplicantView';
-
+import axios from 'axios';
 export default function CompanyJobListing() {
   const [jobListings, setJobListings] = useState([
     {
@@ -306,6 +306,7 @@ export default function CompanyJobListing() {
   const [showSortOptions, setShowSortOptions] = useState(false);
   const [sortOption, setSortOption] = useState("Latest");
   const [selectedJob, setSelectedJob] = useState(null);
+  const [job, setpost] = useState('')
 
   const sortOptions = ["Latest", "Oldest", "Most Applicants", "Fewest Applicants", "Alphabetical"];
 
@@ -314,6 +315,29 @@ export default function CompanyJobListing() {
       ? "text-green-500 border border-green-200 bg-green-50" 
       : "text-red-500 border border-red-200 bg-red-50";
   };
+
+  useEffect(() => {
+    const user = localStorage.getItem('user');
+    if (!user) return;
+  
+    const userInfo = JSON.parse(user);
+    const user_email = userInfo.email;
+  
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/job/jobpost`)
+      .then((response) => {
+        const jobs = response.data;
+        console.log(jobs);
+        {
+          jobs.map((job)=>{ (job.postedBy)})
+        }
+        
+        
+      })
+      .catch((err) => console.error("❌ Error fetching jobs:", err));
+  }, []);
+
+  
 
   const getJobTypeStyle = (type) => {
     switch(type) {

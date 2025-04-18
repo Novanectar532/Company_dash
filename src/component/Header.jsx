@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, UserCircle2 } from "lucide-react";
 // import PersnolProfile from "./PersnolProfile";
 import {
   FaUser,
@@ -22,12 +22,14 @@ import {
 function Header() {
   // const [chartData, setChartData] = useState(yearlyData);
   const [timeframe, setTimeframe] = useState("Yearly");
-
+  // const user = localStorage.getItem('user')
+  // const userinfo = JSON.parse(user)
+  // console.log(userinfo.email)
   return (
     <>
   <nav className="flex justify-end items-center p-2 bg-amber-300 shadow-md w-full ">
           <button className="bg-indigo-600 text-white px-4 py-2 rounded-lg flex items-center hover:bg-indigo-700 transition">
-            + Post a job
+          {/* {userinfo.email} */}
           </button>
           <FaBell className="text-gray-600 text-xl mx-4 cursor-pointer hover:text-gray-800 transition" />
           <img
