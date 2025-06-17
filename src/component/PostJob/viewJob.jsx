@@ -5,14 +5,39 @@ import { Link } from "react-router-dom";
 
 const ViewJob = () => {
   const [jobs, setJobs] = useState([]);
+   const [user, setUser] = useState(null);
+   const [userJobs, setUserJobs] = useState([]);
+
+  const fetchJobs = async () => {
+  try {
+    const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/job/jobpost`);
+    setJobs(res.data); // ✅ Axios puts the actual response data inside `res.data`
+  } catch (error) {
+    console.error("Error fetching jobs:", error);
+  }
+};
+
 
   useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/job/jobpost`)
-      .then((result) => setJobs(result.data))
-      .catch((err) => console.log(err));
+
+     const userInfo = localStorage.getItem("user");
+    if (userInfo) {
+      const parsedUser = JSON.parse(userInfo);
+      setUser(parsedUser);
+    }
+
+   
+
+     fetchJobs() 
       
   }, []);
+
+  useEffect(() => {
+   if (user && jobs.length > 0) {
+      const filtered = jobs.filter((job) => job.postedBy === user.email);
+      setUserJobs(filtered);
+    }
+  },[user, jobs])
 
   const handleDelete = (id) => {
     axios
@@ -26,7 +51,7 @@ const ViewJob = () => {
   return (
     <>
       <div className="p-4 grid grid-cols-1  lg:grid-cols-2 gap-4">
-        {jobs.map((job) => (
+        {userJobs.map((job) => (
           <div
             key={job._id}
             className="w-full bg-white rounded-2xl shadow-md border border-gray-200 p-6 flex flex-col justify-between"

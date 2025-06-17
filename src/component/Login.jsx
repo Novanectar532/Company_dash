@@ -60,8 +60,8 @@ const Login = () => {
       }
 
       // Check if the user type matches the active tab
-      const userType = "employee";
-      const activeTab = 'employee';
+      const userType = "Recruiter";
+      const activeTab = 'Recruiter';
       if (data.user.userType !== activeTab) {
         throw new Error(`This account is registered as a ${data.user.userType}. Please use the ${data.user.userType} tab to login.`);
       }
@@ -73,7 +73,7 @@ const Login = () => {
         localStorage.setItem('user', JSON.stringify(data.user));
         
         setUser(data.user);
-        
+        ` `
       }
       setIsLoading(false);
       navigate('/');

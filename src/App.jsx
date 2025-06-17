@@ -131,6 +131,7 @@ import Login from './component/Login';
 
 
 // Protected Components
+import AllAplicant from './component/Allapplicants/AllAplicant';
 import Dashboard from './component/dashboard/Dashboard';
 import Company_profile from './component/company/CompanyProfile';
 import MessagingUI from './component/message/Message';
@@ -141,7 +142,7 @@ import Postjob from './component/PostJob/postjob';
 import ViewJob from './component/PostJob/viewJob';
 import Update from './component/PostJob/update';
 import InterviewSchedule from './component/Allapplicants/InterviewSchedule';
-
+import AboutUs from '../../jobportal/src/component/About';
 function App() {
   const router = createBrowserRouter([
     {
@@ -159,7 +160,8 @@ function App() {
         {
           path: '/login',
           element: <Login />
-        },
+        },,
+
         
         {
           path: '/comapnyprofile',
@@ -221,7 +223,7 @@ function App() {
           path: '/allapplicants',
           element: (
             <ProtectedRoute>
-              <ApplicantDetails />
+              <AllAplicant />
             </ProtectedRoute>
           )
         },
@@ -240,6 +242,9 @@ function App() {
               <InterviewSchedule />
             </ProtectedRoute>
           )
+        },{
+          path:'/about',
+          element:<AboutUs/>
         }
       ]
     }

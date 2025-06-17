@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import logo from '../../assets/image/Company_Logo.png';
+import axios from "axios";
 import PersnolProfile from "./PersonalProfile"
 import {
   FaUser,
@@ -157,6 +158,49 @@ const applicantSummary = {
 function Dashboard() {
   const [chartData, setChartData] = useState(yearlyData);
     const [timeframe, setTimeframe] = useState("Yearly");
+    const [applicant, setApplicant] = useState([]);
+     const [userJobs, setUserJobs] = useState([]);
+     console.log('userJobs', userJobs);
+    const [job, setJob] = useState([]);
+     const [user, setUser] = useState(null);
+    const fetchdata = async () => {
+      const res = await axios.get("http://localhost:5000/api/applications")
+      console.log('hey  ',res.data.applications);
+      setApplicant(res.data.applications);
+    }
+
+   useEffect(() => {
+
+     const userInfo = localStorage.getItem("user");
+    if (userInfo) {
+      const parsedUser = JSON.parse(userInfo);
+      setUser(parsedUser);
+    }
+
+   
+
+     fetchdata() 
+      
+  }, []);
+
+    useEffect(() => {
+   if (user && job.length > 0) {
+      const filtered = job.filter((job) => job.postedBy === user.email);
+      setUserJobs(filtered);
+    }
+  },[user, job])
+    
+    const data = async () => {
+      const res = await axios.get("http://localhost:5000/job/jobpost")
+      console.log('hey  ',res.data);
+      setJob(res.data);
+
+    }
+
+    useEffect(() => {
+      fetchdata();
+      data();
+    },[])
   return (
     <>
         <h2 className="text-xl  pt-5 font-semibold">Good morning, Natasha Bunny</h2>
@@ -169,7 +213,7 @@ function Dashboard() {
           <div className="bg-blue-500 text-white p-4 rounded-lg flex items-center md:mb-0 mb-4 ">
             <FaUser className="text-2xl mr-2" />
             <div>
-              <h3 className="text-lg font-bold">76</h3>
+              <h3 className="text-lg font-bold">{applicant.length}</h3>
               <p>New applicants to review</p>
             </div>
           </div>
@@ -344,8 +388,8 @@ function Dashboard() {
 
         <div className="mt-6 mx-auto">
           <h3 className="text-lg font-semibold">Job Updates</h3>
-          <div className="grid lg:grid-cols-3 grid-cols-2 gap-4 mt-4">
-          {jobData.map((job, index) => (
+          <div className="grid lg:grid-cols-3 grid-cols-2 gap-4 mt-4 mb-2">
+          {userJobs.map((job, index) => (
         <DashJobCard key={index} {...job} />
       ))}
           </div>
