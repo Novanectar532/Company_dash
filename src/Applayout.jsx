@@ -15,13 +15,15 @@ import {
 
 function Applayout() {
   return (
-    <div className='w-full flex flex-flex'>
-        <div className='w-3/12'><Sidebar/></div>
-        <div className='flex w-9/12  flex-col'>
-          {<Header/>}
-          {<Outlet/>}
-          </div>
-    </div>
+    <>
+      <div className='flex flex-row'>
+        <Sidebar className=' bg-amber-200' containerStyle='w-64 bg-white shadow-md hidden lg:block'/>
+        <div className='w-full flex flex-col'>
+          <Header />
+          <Outlet />
+        </div>
+      </div>
+    </>
   )
 }
 

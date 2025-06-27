@@ -51,7 +51,7 @@ function Company_profile() {
   return (
     <>
       <div class="flex">
-        <div class="w-64 bg-white h-screen p-6 hidden lg:block">
+        {/* <div class="w-64 bg-white h-screen p-6 hidden lg:block">
         
           <nav>
             <ul>
@@ -67,10 +67,10 @@ function Company_profile() {
               </li>
             </ul>
           </nav>
-        </div>
-        <div className="flex-1 p-6">
+        </div> */}
+        <div className="flex-1 p-4 md:p-6">
           <div>
-            <div className="flex justify-between items-center mb-6">
+            <div className="flex justify-between items-center mb-6 flex-wrap">
               <div className="flex items-center">
                 <img
                   alt="Company Logo"
@@ -93,7 +93,7 @@ function Company_profile() {
                 </button>
               </div>
             </div>
-            <div class="md:flex justify-center items-center mb-6 ">
+            <div class="flex flex-wrap md:justify-evenly items-center mb-6 ">
               <div className=" p-4 rounded-lg flex items-center">
                    <img src={found} alt="" className="text-2xl mr-2"  />
                 <div>
@@ -115,11 +115,11 @@ function Company_profile() {
                 <p class="font-semibold">India</p>
             </div>
               </div>
-              <div className= " p-4 rounded-lg flex items-center  ">
+              <div className= " p-4 rounded-lg flex items-center ">
                    <img src={industry} alt="" className="text-2xl mr-2"  />
                 <div>
                 <p class="text-gray-500">Industry</p>
-                <p class="font-semibold">IT Services and IT Consulting</p>
+                <p class="font-semibold w-24 md:w-full">IT Services and IT Consulting</p>
             </div>
               
               </div>
@@ -160,32 +160,32 @@ function Company_profile() {
                     <CiEdit className="text-2xl" />
                   </button>
                 </div>
-                <div className="md:flex md:space-x-4 mb-4   md:flex-wrap  gap-y-3  justify-center  ">
-                  <button className="text-blue-600 flex items-center md:gap-2 border-2 px-3 py-1 cursor-pointer  md:mb-0 mb-4 w-full md:w-auto ">
+                <div className="flex space-x-4 mb-4 flex-wrap  gap-y-3  ">
+                  <button className="text-blue-600 flex items-center md:gap-2 border-2 px-3 py-1 cursor-pointer  md:mb-0 mb-4 w-fit  md:w-full ">
                     <img src={facebook} alt="" />
-                    <p>facebook</p>
+                    <p className="hidden md:block">facebook</p>
                   </button>
-                  <button className="text-pink-600 flex items-center gap-2 border-2 px-3 py-1 cursor-pointer md:mb-0 mb-4 w-full md:w-auto ">
+                  <button className="text-pink-600 flex w-fit items-center gap-2 border-2 px-3 py-1 cursor-pointer md:mb-0 mb-4 md:w-full ">
                     <img src={instagram} alt="" />
-                    <p>instagram</p>
+                    <p className="hidden md:block">instagram</p>
                   </button>
-                  <button className="text-blue-700 flex items-center gap-2 border-2 px-5 py-1 cursor-pointer md:mb-0 mb-4 w-full md:w-auto  ">
+                  <button className="text-blue-700 flex items-center gap-2 border-2 px-3 py-1 cursor-pointer md:mb-0 mb-4 w-fit  md:w-full ">
                     <img src={LinkedIn} alt="" />
-                    <p>linkedin</p>
+                    <p className="hidden md:block">linkedin</p>
                   </button>
-                  <button className="text-red-600 flex items-center gap-2 border-2 px-7 py-1 cursor-pointer md:mb-0 mb-4 w-full md:w-auto ">
+                  <button className="text-red-600 flex items-center gap-2 border-2 px-3 py-1 cursor-pointer md:mb-0 mb-4 w-fit  md:w-full">
                     <img src={gmail} alt="" />
-                    <p>gmail</p>
+                    <p className="hidden md:block">gmail</p>
                   </button>
                 </div>
-                <div className="grid grid-cols-2  items-center  ">
-                  <div className="justify-self-center ">
-                    <img src={image1} alt="" className="h-[463px]" />
+                <div className="flex flex-col md:grid grid-cols-2  items-center  ">
+                  <div className="w-full">
+                    <img src={image1} alt="" className="h-[200px] sm:h-[300px] md:h-[463px] w-full object-cover" />
                   </div>
-                  <div className=" justify-self-center ">
-                    <img src={image2} alt="" className="h-[154px]" />
-                    <img src={image3} alt="" className="h-[154px]" />
-                    <img src={image4} alt="" className="h-[154px]" />
+                  <div className="flex flex-row md:flex-col">
+                    <img src={image2} alt="" className="w-[33%] md:w-full md:h-[154px] object-cover" />
+                    <img src={image3} alt="" className="w-[33%] md:w-full md:h-[154px] object-cover" />
+                    <img src={image4} alt="" className="w-[33%] md:w-full md:h-[154px] object-cover" />
                   </div>
                 </div>
               </div>

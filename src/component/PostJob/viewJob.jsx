@@ -17,7 +17,7 @@ const ViewJob = () => {
   }
 };
 
-
+console.log(jobs)
   useEffect(() => {
 
      const userInfo = localStorage.getItem("user");
@@ -51,14 +51,14 @@ const ViewJob = () => {
   return (
     <>
       <div className="p-4 grid grid-cols-1  lg:grid-cols-2 gap-4">
-        {userJobs.map((job) => (
+        {userJobs.length >0 && userJobs.map((job) => (
           <div
             key={job._id}
             className="w-full bg-white rounded-2xl shadow-md border border-gray-200 p-6 flex flex-col justify-between"
           >
             <div>
             <p className="text-sm text-gray-400 text-right">
-                  Posted on: {job.day}-{job.month}-{job.year}
+                  Posted on: {job?.day}-{job.month}-{job.year}
                 </p>
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4">
                 <div className="flex items-center gap-3 mb-2 sm:mb-0">

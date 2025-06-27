@@ -408,7 +408,7 @@ export default function CompanyJobListing() {
 
   return (
     <div className="w-full bg-white p-4">
-      <div className="flex justify-between items-center py-4">
+      <div className="flex justify-between items-center py-4 flex-wrap">
         <div className="pb-4">
           <h2 className="text-xl font-semibold text-gray-800">Job Listing</h2>
           <p className="text-sm text-gray-500">Here is your jobs listing status from {dateRange}.</p>

@@ -77,7 +77,7 @@
 //           path:'/all',
 //           element:<MessagingUI/> 
 //         }
-        
+
 //         ,{
 //           path : '/post',
 //           element : <Postjob/>
@@ -92,14 +92,14 @@
 //         }, { path: '/setting', element: <SettingsPage /> },
 //         { path: '/allapplicants', element: <ApplicantDetails /> },
 //         { path: '/joblisting', element: <Joblisting /> },
-       
+
 //       ]
 //     }
 //   ])
 
 //   return <RouterProvider router = {router}/>
-   
-  
+
+
 // }
 
 // export default App
@@ -142,7 +142,7 @@ import Postjob from './component/PostJob/postjob';
 import ViewJob from './component/PostJob/viewJob';
 import Update from './component/PostJob/update';
 import InterviewSchedule from './component/Allapplicants/InterviewSchedule';
-import AboutUs from '../../jobportal/src/component/About';
+// import AboutUs from '../../jobportal/src/component/About';
 function App() {
   const router = createBrowserRouter([
     {
@@ -152,108 +152,108 @@ function App() {
         {
           path: '/',
           element: (
-            <ProtectedRoute>
+            //<ProtectedRoute>
               <Dashboard />
-            </ProtectedRoute>
+            //</ProtectedRoute>
           )
         },
         {
           path: '/login',
           element: <Login />
-        },,
+        },
 
-        
+
         {
-          path: '/comapnyprofile',
+          path: '/companyprofile',
           element: (
-            <ProtectedRoute>
+            //<ProtectedRoute>
               <Company_profile />
-            </ProtectedRoute>
+            //</ProtectedRoute>
           )
         },
         {
           path: '/message',
           element: (
-            <ProtectedRoute>
+            //<ProtectedRoute>
               <MessagingUI />
-            </ProtectedRoute>
+            //</ProtectedRoute>
           )
         },
         {
           path: '/all',
           element: (
-            <ProtectedRoute>
+            //<ProtectedRoute>
               <MessagingUI />
-            </ProtectedRoute>
+            //</ProtectedRoute>
           )
         },
         {
           path: '/post',
           element: (
-            <ProtectedRoute>
+            //<ProtectedRoute>
               <Postjob />
-            </ProtectedRoute>
+            //</ProtectedRoute>
           )
         },
         {
           path: '/viewjob',
           element: (
-            <ProtectedRoute>
+            //<ProtectedRoute>
               <ViewJob />
-            </ProtectedRoute>
+            //</ProtectedRoute>
           )
         },
         {
           path: '/updatejob/:id',
           element: (
-            <ProtectedRoute>
+            //<ProtectedRoute>
               <Update />
-            </ProtectedRoute>
+            //</ProtectedRoute>
           )
         },
         {
           path: '/setting',
           element: (
-            <ProtectedRoute>
+            //<ProtectedRoute>
               <SettingsPage />
-            </ProtectedRoute>
+            //</ProtectedRoute>
           )
         },
         {
           path: '/allapplicants',
           element: (
-            <ProtectedRoute>
+            //<ProtectedRoute>
               <AllAplicant />
-            </ProtectedRoute>
+            //</ProtectedRoute>
           )
         },
         {
           path: '/joblisting',
           element: (
-            <ProtectedRoute>
+            //<ProtectedRoute>
               <Joblisting />
-            </ProtectedRoute>
+            //</ProtectedRoute>
           )
         },
         {
           path: '/interviewSchedule',
           element: (
-            <ProtectedRoute>
+            //<ProtectedRoute>
               <InterviewSchedule />
-            </ProtectedRoute>
+            //</ProtectedRoute>
           )
-        },{
-          path:'/about',
-          element:<AboutUs/>
-        }
+        }, //about{
+        //   path: '/about',
+        //   element: <AboutUs />
+        // }
       ]
     }
   ]);
 
   return (
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
+    // <AuthProvider>
+    <RouterProvider router={router} />
+    // {/* </AuthProvider> */}
   );
 }
 

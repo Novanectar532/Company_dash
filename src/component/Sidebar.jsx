@@ -1,6 +1,7 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
-function Sidebar() {
+import { IoClose } from 'react-icons/io5';
+import { Link, useNavigate } from 'react-router-dom';
+function Sidebar({containerStyle, close}) {
   const navigate = useNavigate();
   const handleLogout=()=>{
     localStorage.removeItem('user');
@@ -9,45 +10,49 @@ function Sidebar() {
   }
   return (
     <>
-       <aside className="w-full bg-white shadow-md hidden lg:block">
-        <h1 className="text-2xl  font-bold text-blue-600 pl-6 pt-2">NextHire</h1>
+       <aside className={`${containerStyle}`}>
+        <div className='flex justify-between items-center'>
+          <h1 className="text-2xl font-bold text-blue-600 pl-6 pt-2">NextHire</h1>
+          <IoClose onClick={close} className='w-6 h-6 text-blue-600 mt-3 mr-2 lg:hidden cursor-pointer'/>
+        </div>
+
         <nav className="mt-6 pb-10 text-lg  pl-5.5 border-r border-blue-200">
-          <a onClick={()=>navigate('/')} className=" cursor-pointer block p-2 rounded ">
+          <Link to="/" onClick={close} className=" cursor-pointer block p-2 rounded ">
             Dashboard
-          </a>
-          <a onClick={()=>navigate('/comapnyprofile')} className=" cursor-pointer block p-2 rounded ">
+          </Link>
+          <Link to="/companyprofile" onClick={close} className=" cursor-pointer block p-2 rounded ">
            Company Profile
-          </a>
-          <a onClick={()=>navigate('/message')} className=" cursor-pointer block p-2 rounded ">
+          </Link>
+          <Link to="/message" onClick={close} className=" cursor-pointer block p-2 rounded ">
            Messages
-          </a>
-          <a onClick={() => navigate('/allapplicants')}className=" cursor-pointer block p-2 rounded ">
+          </Link>
+          <Link to="/allapplicants" onClick={close} className=" cursor-pointer block p-2 rounded ">
            All Applicants 
-          </a>
-          <a  onClick={() => navigate('/joblisting')} className=" cursor-pointer block p-2 rounded ">
+          </Link>
+          <Link to="/joblisting" onClick={close} className=" cursor-pointer block p-2 rounded ">
            Job Listing
-          </a><a href="#" className=" cursor-pointer block p-2 rounded ">
+          </Link><a href="#" onClick={close} className=" cursor-pointer block p-2 rounded ">
            My Schedule
           </a>
          
-          <a onClick={()=>navigate('/post')} className=" cursor-pointer block p-2 rounded ">
+          <Link to="/post" onClick={close}  className=" cursor-pointer block p-2 rounded ">
            PostJob
-          </a>
-          <a onClick={()=>navigate('/viewjob')} className=" cursor-pointer block p-2 rounded ">
+          </Link>
+          <Link to='/viewjob' onClick={close} className=" cursor-pointer block p-2 rounded ">
            View all Job
-          </a>
+          </Link>
         </nav>
         <hr className='text-blue-200 mx-3 ' />
         <nav className='border-r border-blue-200 pt-5 pb-6 text-lg pl-5.5 '>
-        <a onClick={()=>navigate('/setting')} className=" cursor-pointer block p-2 rounded ">
+        <Link to='/setting' className=" cursor-pointer block p-2 rounded ">
             Setting
-          </a>
+          </Link>
           <a href="#" className=" cursor-pointer block p-2 rounded ">
             Help Center
           </a>
-          <a onClick={handleLogout} className=" cursor-pointer block p-2 rounded ">
+          <Link onClick={handleLogout} className=" cursor-pointer block p-2 rounded ">
             Logout
-          </a>
+          </Link>
         </nav>
       </aside>
     </>

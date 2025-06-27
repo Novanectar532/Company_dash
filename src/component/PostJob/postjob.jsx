@@ -1,5 +1,5 @@
 
-import React , { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { FaArrowLeft, FaSpinner } from "react-icons/fa"
 import bag from "../../assets/image/bag.png"
 import note from "../../assets/image/note.png"
@@ -23,7 +23,7 @@ const PostJob = () => {
   const [sallery, setSallery] = useState(1000)
   const [categories, setCategories] = useState([])
   console.log(categories);
-  
+
   const [requiredSkills, setRequiredSkills] = useState(["JavaScript", "React", "Node.js"])
   const [input, setInput] = useState("")
 
@@ -87,7 +87,7 @@ const PostJob = () => {
 
     try {
       axios
-      .post(`${import.meta.env.VITE_BACKEND_URL}/job/jobpost`, {
+        .post(`${import.meta.env.VITE_BACKEND_URL}/job/jobpost`, {
           jobTitle,
           employmentType,
           sallery,
@@ -107,7 +107,7 @@ const PostJob = () => {
           day,
           month,
           year,
-          postedBy:user_id
+          postedBy: user_id
         })
         .then((result) => {
           console.log(result)
@@ -123,7 +123,7 @@ const PostJob = () => {
 
   // Progress indicator component
   const ProgressIndicator = () => (
-    <div className="flex items-center mb-10 justify-evenly flex-wrap gap-4">
+    <div className="flex items-center mb-10 justify-evenly gap-4">
       <div className="flex items-center font-medium">
         <div
           className={`w-10 h-10 rounded-full ${step === 1 ? "bg-[#4640DE]" : "bg-gray-300"} flex items-center justify-center mr-2`}
@@ -131,10 +131,11 @@ const PostJob = () => {
           <img src={bag || "/placeholder.svg"} alt="" className="h-6" />
         </div>
         <div className={`text-sm ${step === 1 ? "text-[#4640DE]" : "text-gray-300"}`}>
-          <p>Step 1/3</p>
-          <p>Job Information</p>
+          <p className="hidden md:block">Step 1/3</p>
+          <p className="hidden md:block">Job Information</p>
         </div>
       </div>
+      <div className="border w-40 md:hidden border-gray-400"></div>
 
       <div className="flex items-center font-medium">
         <div
@@ -143,11 +144,11 @@ const PostJob = () => {
           <img src={note || "/placeholder.svg"} alt="" className="h-6" />
         </div>
         <div className={`text-sm ${step === 2 ? "text-[#4640DE]" : "text-gray-300"}`}>
-          <p>Step 2/3</p>
-          <p>Job Description</p>
+          <p className="hidden md:block">Step 2/3</p>
+          <p className="hidden md:block">Job Description</p>
         </div>
       </div>
-
+      <div className="border w-40 md:hidden border-gray-400"></div>
       <div className="flex items-center font-medium">
         <div
           className={`w-10 h-10 rounded-full ${step === 3 ? "bg-[#4640DE]" : "bg-gray-300"} flex items-center justify-center mr-2`}
@@ -155,8 +156,8 @@ const PostJob = () => {
           <img src={bag || "/placeholder.svg"} alt="" className="h-6" />
         </div>
         <div className={`text-sm ${step === 3 ? "text-[#4640DE]" : "text-gray-300"}`}>
-          <p>Step 3/3</p>
-          <p>Company Information</p>
+          <p className="hidden md:block">Step 3/3</p>
+          <p className="hidden md:block">Company Information</p>
         </div>
       </div>
     </div>
@@ -200,19 +201,19 @@ const PostJob = () => {
   )
 
 
- useEffect(()=>{
-  const userid = localStorage.getItem('user')
-  console.log('userii',userid)
-  try{
-    const info = JSON.parse(userid)
-    setuser_id(info.email);
-  }catch(err){
-    console.log(err);
-  }
- },[])
+  useEffect(() => {
+    const userid = localStorage.getItem('user')
+    console.log('userii', userid)
+    try {
+      const info = JSON.parse(userid)
+      setuser_id(info.email);
+    } catch (err) {
+      console.log(err);
+    }
+  }, [])
 
   return (
-    <div className="p-6 bg-white shadow rounded-lg">
+    <div className="p-4 md:p-6 bg-white shadow rounded-lg">
       <form onSubmit={(e) => e.preventDefault()}>
         <div>
           <Header />
@@ -228,15 +229,15 @@ const PostJob = () => {
 
                 {/* Employee id */}
                 <div className="mb-6 flex flex-col md:flex-row gap-4">
-                  <div className="w-full md:w-1/3">
-                    <h1 className="font-semibold">Employee ID</h1>
+                  <div className="w-full flex-1">
+                    <h1 className="font-semibold ">Employee ID</h1>
                   </div>
-                  <div className="w-full md:w-2/3">
+                  <div className="w-full flex-1">
                     <input
                       type="text"
                       placeholder="e.g. Software Engineer"
                       className="w-full border outline-none p-3 rounded-md placeholder-gray-400 disabled"
-                     
+
                       value={user_id}
                     />
                     <p className="text-xs text-gray-400 mt-1">At least 80 characters</p>
@@ -246,11 +247,11 @@ const PostJob = () => {
 
                 {/* Job Title */}
                 <div className="mb-6 flex flex-col md:flex-row gap-4">
-                  <div className="w-full md:w-1/3">
+                  <div className="w-full flex-1">
                     <h1 className="font-semibold">Job Title</h1>
                     <p className="text-gray-500">Job titles must describe one position</p>
                   </div>
-                  <div className="w-full md:w-2/3">
+                  <div className="w-full flex-1">
                     <input
                       type="text"
                       placeholder="e.g. Software Engineer"
@@ -264,11 +265,11 @@ const PostJob = () => {
 
                 {/* Employment Type */}
                 <div className="mb-6 flex flex-col md:flex-row gap-4">
-                  <div className="w-full md:w-1/3">
+                  <div className="w-full flex-1">
                     <p className="font-semibold">Type of Employment</p>
                     <p className="text-gray-500">You can select multiple type of employment</p>
                   </div>
-                  <div className="w-full md:w-2/3 space-y-2">
+                  <div className="w-full flex-1 space-y-2">
                     {["Full-time", "Part-time", "Remote", "Internship", "Contract"].map((type) => (
                       <label key={type} className="flex items-center space-x-2">
                         <input
@@ -286,11 +287,11 @@ const PostJob = () => {
 
                 {/* Salary */}
                 <div className="mb-6 flex flex-col md:flex-row gap-4">
-                  <div className="w-full md:w-1/3">
+                  <div className="w-full flex-1">
                     <p className="font-semibold">Salary</p>
                     <p className="text-gray-500 mb-2">Please specify the estimated salary range for the role.</p>
                   </div>
-                  <div className="w-full md:w-2/3">
+                  <div className="w-full flex-1">
                     <div className="flex items-center gap-4">
                       <span className="text-sm text-gray-500 font-medium">₹ 0</span>
                       <input
@@ -304,17 +305,17 @@ const PostJob = () => {
                       <span className="text-sm text-gray-500 font-medium">₹ 15,000</span>
                     </div>
                     <div className="w-full flex flex-col sm:flex-row sm:items-center sm:justify-between mt-2">
-  <p className="font-semibold text-sm sm:text-base mb-2 sm:mb-0 text-right sm:text-left">
-    Selected Salary: <input
-    type="text"
-    value={sallery}
-    onChange={(e) => setSallery(e.target.value)}
-    className="border border-gray-300 rounded-md px-3 py-1 w-full sm:w-20 text-sm sm:text-base"
-    placeholder="Enter Salary"
-  />
-  </p>
-  
-</div>
+                      <p className="font-semibold text-sm sm:text-base mb-2 sm:mb-0 text-right sm:text-left">
+                        Selected Salary: <input
+                          type="text"
+                          value={sallery}
+                          onChange={(e) => setSallery(e.target.value)}
+                          className="border border-gray-300 rounded-md px-3 py-1 w-full sm:w-20 text-sm sm:text-base"
+                          placeholder="Enter Salary"
+                        />
+                      </p>
+
+                    </div>
 
 
 
@@ -323,16 +324,16 @@ const PostJob = () => {
 
                 {/* Categories */}
                 <div className="mb-6 flex flex-col md:flex-row gap-4">
-                  <div className="w-full md:w-1/3">
+                  <div className="w-full flex-1">
                     <p className="font-semibold">Categories</p>
                     <p className="text-gray-500">You can select multiple job categories</p>
                   </div>
-                  <div className="w-full md:w-2/3">
+                  <div className="w-full flex-1">
                     <select
                       className="w-full border border-gray-300 p-3 rounded-md text-gray-600"
                       onChange={(e) => setCategories(e.target.value)}
-                     
-                      
+
+
                       value={categories}
                     >
                       <option value="" disabled>Select Job Category</option>
@@ -349,12 +350,12 @@ const PostJob = () => {
 
                 {/* Required Skills */}
                 <div className="mb-6 flex flex-col md:flex-row gap-4">
-                  <div className="w-full md:w-1/3">
+                  <div className="w-full flex-1">
                     <p className="font-semibold">Required Skills</p>
                     <p className="text-gray-500">Add required skills for the job</p>
                   </div>
 
-                  <div className="w-full md:w-2/3">
+                  <div className="w-full flex-1">
                     <div className="mb-2 flex flex-col sm:flex-row gap-2">
                       <input
                         type="text"

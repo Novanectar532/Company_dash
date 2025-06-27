@@ -202,40 +202,33 @@ function Dashboard() {
       data();
     },[])
   return (
-    <>
+    <section className="p-4 md:p-8 ">
         <h2 className="text-xl  pt-5 font-semibold">Good morning, Natasha Bunny</h2>
         <p className="text-gray-500">
           Here is your job listings statistic report.
         </p>
 
-  
-        <div className="md:flex gap-4 mt-6   lg:grid lg:grid-cols-3 mx-auto justify-around ">
-          <div className="bg-blue-500 text-white p-4 rounded-lg flex items-center md:mb-0 mb-4 ">
-            <FaUser className="text-2xl mr-2" />
-            <div>
-              <h3 className="text-lg font-bold">{applicant.length}</h3>
-              <p>New applicants to review</p>
-            </div>
-          </div>
-          <div className="bg-green-500 text-white p-4 rounded-lg flex items-center md:mb-0 mb-4 ">
-            <FaCalendarAlt className="text-2xl mr-2" />
-            <div>
-              <h3 className="text-lg font-bold">110</h3>
-              <p>Interview schedule for today</p>
-            </div>
-          </div>
-          <div className="bg-blue-300 text-white p-4 rounded-lg flex items-center md:mb-0 mb-4 ">
-            <FaEnvelope className="text-2xl mr-2" />
-            <div>
-              <h3 className="text-lg font-bold">23</h3>
-              <p>Messages received</p>
-            </div>
-          </div>
+        <div className='flex flex-col sm:flex-row flex-wrap gap-2 pb-6'>
+        <div className='flex-1 flex bg-[#837FEF] rounded-xl text-white gap-3 items-center justify-center py-6 px-3'>
+          <p className='font-semibold md:text-[48px] text-[30px]'>{applicant.length}</p>
+          <p className='font-medium text-[18px]'>New applicants to review</p>
+          <FaUser className='w-6 h-6' />
         </div>
+        <div className='flex-1 flex bg-[#1F9AD3] rounded-xl text-white gap-3 items-center justify-center py-6 px-3'>
+          <p className='font-semibold md:text-[48px] text-[30px]'>110</p>
+          <p className='font-medium text-[18px]'>Interview schedule for today</p>
+          <FaCalendarAlt className='w-7 h-7' />
+        </div>
+        <div className='flex-1 flex bg-[#F4A79D] rounded-xl text-white gap-3 items-center justify-center py-6 px-3'>
+          <p className='font-semibold md:text-[48px] text-[30px]'>23</p>
+          <p className='font-medium text-[18px]'>Messages received</p>
+          <FaEnvelope className='w-7 h-7' />
+        </div>
+      </div>
 
     
         <div className="bg-white  rounded-lg shadow-md mt-6 mx-auto px-2 pt-2">
-          <div className="flex justify-between ">
+          <div className="flex justify-between flex-wrap">
             <h3 className="text-lg font-semibold">Job Statistics</h3>
             <div className="flex rounded-2xl">
               <button
@@ -279,8 +272,8 @@ function Dashboard() {
               </button>
             </div>
           </div>
-          <div className="flex flex-wrap  md:grid  md:grid-cols-2 gap-2 items-center justify-center py-10  ">
-            <div className="max-w-full ">
+          <div className="flex flex-wrap flex-col md:grid  md:grid-cols-2 gap-0 md:gap-2 items-center py-10  ">
+            <div className="max-w-full flex-1">
               <ResponsiveContainer width="100%" height={300}>
                 <BarChart data={chartData}>
                   <XAxis
@@ -292,7 +285,7 @@ function Dashboard() {
                         : "week"
                     }
                   />
-                  <YAxis />
+                  <YAxis/>
                   <Tooltip />
                   <Legend />
                   <Bar
@@ -310,8 +303,8 @@ function Dashboard() {
                 </BarChart>
               </ResponsiveContainer>
             </div>
-            <div className="mx-auto">
-              <div className=" flex gap-3">
+            <div className="mx-auto flex-1">
+              <div className=" flex gap-3 flex-wrap justify-center">
                 <div>
                   <div className="bg-white p-4 rounded-lg shadow-md mt-6 w-44 flex items-center justify-between">
                     <div>
@@ -346,7 +339,7 @@ function Dashboard() {
                 </div>
               </div>
               <div>
-                <div className="bg-white mx-auto rounded-lg shadow-md mt-6 w-auto">
+                <div className="flex flex-col bg-white mx-auto rounded-lg shadow-md mt-6 w-auto p-3">
                   <h3 className="text-lg font-semibold">Applicants Summary</h3>
                   <h2 className="text-2xl font-bold">
                     {applicantSummary.totalApplicants}{" "}
@@ -394,7 +387,7 @@ function Dashboard() {
       ))}
           </div>
         </div>
-    </>
+    </section>
   )
 }
 

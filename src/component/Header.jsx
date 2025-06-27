@@ -19,8 +19,11 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import { MdMenu } from "react-icons/md";
+import Sidebar from "./Sidebar";
 function Header() {
   const [user, setUser] = useState(null);
+  const [openSidebar, setOpenSidebar] = useState(false)
 useEffect(() => {
   const userInfo = localStorage.getItem("user");
   if (userInfo) {
@@ -47,17 +50,22 @@ useEffect(() => {
           />
     </nav> */}
 
-    
+    <div className="flex justify-between bg-indigo-600 text-white items-center lg:justify-end">
+      <MdMenu onClick={()=>setOpenSidebar(true)} className="cursor-pointer lg:hidden w-8 h-8 mx-4 my-2"/>
 
     {user ? (
-      <p  className="bg-indigo-400 text-white flex justify-end px-4 py-2  items-center text-xl transition">{user.email}</p>
+      <p  className="bg-indigo-400 text-white px-4 py-2 text-xl transition">{user.email}</p>
     ) : (
-      <button className="bg-indigo-600 text-white flex justify-end px-4 py-2  items-center text-xl transition" onClick={() => navigate("/login")}>Login</button>
+      <button className=" px-4 py-2 text-xl transition" onClick={() => navigate("/login")}>Login</button>
     )}
  
 
-
-
+    {
+      openSidebar && (
+        <Sidebar containerStyle='w-54 absolute top-0 bg-white text-black shadow-md block lg:hidden z-[10000]' close={()=>setOpenSidebar(false)}/>
+      )
+    }
+    </div>
 
     </>
   )
